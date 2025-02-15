@@ -4,6 +4,7 @@ import Loginpage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import ProtectedRoute from './routing/ProtectedRoute';
 import NotFoundPage from './pages/NotFoundPage';
+import TopUpPage from './pages/TopUpPage';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 
 			<Route element={<ProtectedRoute />}>
 				<Route path="/homepage" element={<HomePage />} />
+				<Route path="/topup" element={<TopUpPage />} />
 			</Route>
 
 			<Route path="*" element={<NotFoundPage />} />

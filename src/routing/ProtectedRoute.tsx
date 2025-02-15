@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import { NavLink, Outlet } from 'react-router';
+import { Navbar } from '../components/ui/Navbar';
 
 export default function ProtectedRoute() {
-	const { userInfo } = useSelector((state: RootState) => state.login);
+	const userToken =
+		useSelector((state: RootState) => state.login.userToken) ||
+		localStorage.getItem('userToken');
 
-	if (!userInfo) {
+	if (!userToken) {
 		return (
 			<div className="flex flex-col justify-center items-center min-h-screen">
 				<h1 className="text-4xl font-bold text-red-500">Unauthorized :(</h1>
@@ -21,6 +24,12 @@ export default function ProtectedRoute() {
 			</div>
 		);
 	}
+	console.log(userToken);
 
-	return <Outlet />;
+	return (
+		<>
+			<Navbar />
+			<Outlet />
+		</>
+	);
 }

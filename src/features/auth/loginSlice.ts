@@ -10,7 +10,6 @@ interface LoginState {
 	loading: boolean;
 	error: string | null;
 	success: string | null;
-	userInfo: string | null;
 	userToken: string | null;
 }
 
@@ -18,7 +17,6 @@ const initialState: LoginState = {
 	loading: false,
 	error: null,
 	success: null,
-	userInfo: null,
 	userToken,
 };
 
@@ -36,8 +34,7 @@ const loginSlice = createSlice({
 			.addCase(loginUserThunk.fulfilled, (state, action) => {
 				state.loading = false;
 				state.success = action.payload.message;
-				state.userInfo = action.payload;
-				state.userToken = action.payload.userToken;
+				state.userToken = action.payload.data.token;
 			})
 			.addCase(loginUserThunk.rejected, (state, action: any) => {
 				state.loading = false;
