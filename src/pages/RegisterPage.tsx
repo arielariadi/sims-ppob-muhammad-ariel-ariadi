@@ -23,8 +23,12 @@ import Swal from 'sweetalert2';
 
 import { NavLink } from 'react-router';
 
-import { AtSign, LockKeyhole, User } from 'lucide-react';
+import { AtSign, LockKeyhole, User, Eye, EyeOff } from 'lucide-react';
 import { authImage, logo } from '../assets/index.ts';
+import {
+	toggleShowConfirmPassword,
+	toggleShowPassword,
+} from '../features/auth/showPasswordSlice.ts';
 
 const registerFormSchema = z
 	.object({
@@ -58,6 +62,14 @@ type RegisterFormSchemaType = z.infer<typeof registerFormSchema>;
 export default function RegisterPage() {
 	const { loading, error, success } = useSelector(
 		(state: RootState) => state.registration
+	);
+
+	const showPassword = useSelector(
+		(state: RootState) => state.showPassword.showPassword
+	);
+
+	const showConfirmPassword = useSelector(
+		(state: RootState) => state.showPassword.showConfirmPassword
 	);
 
 	const dispatch = useDispatch<AppDispatch>();
@@ -121,10 +133,10 @@ export default function RegisterPage() {
 				<div className="w-full md:w-1/2 p-8">
 					<div className="flex items-center justify-center">
 						<img src={logo} alt="Logo" className="w-7 h-7 mr-2" />{' '}
-						<h1 className="text-md font-bold text-gray-900">SIMS PPOB</h1>
+						<h1 className="text-xl font-medium text-gray-900">SIMS PPOB</h1>
 					</div>
 
-					<h2 className="text-center text-2xl font-bold w-[20rem] mx-auto m-5">
+					<h2 className="text-center text-2xl font-medium w-[20rem] mx-auto m-5">
 						Lengkapi data untuk membuat akun
 					</h2>
 
@@ -214,11 +226,21 @@ export default function RegisterPage() {
 												</span>
 
 												<Input
-													type="password"
+													type={showPassword ? 'text' : 'password'}
 													{...field}
 													placeholder="buat password"
 													className="pl-10"
 												/>
+												<Button
+													variant="ghost"
+													onClick={() => dispatch(toggleShowPassword())}
+													className="absolute inset-y-0 right-0 px-3 cursor-pointer">
+													{showPassword ? (
+														<EyeOff className="h-5 w-5" />
+													) : (
+														<Eye className="h-5 w-5" />
+													)}
+												</Button>
 											</div>
 										</FormControl>
 										<FormMessage />
@@ -238,11 +260,21 @@ export default function RegisterPage() {
 												</span>
 
 												<Input
-													type="password"
+													type={showConfirmPassword ? 'text' : 'password'}
 													{...field}
 													placeholder="konfirmasi password"
 													className="pl-10"
 												/>
+												<Button
+													variant="ghost"
+													onClick={() => dispatch(toggleShowConfirmPassword())}
+													className="absolute inset-y-0 right-0 px-3 cursor-pointer">
+													{showConfirmPassword ? (
+														<EyeOff className="h-5 w-5" />
+													) : (
+														<Eye className="h-5 w-5" />
+													)}
+												</Button>
 											</div>
 										</FormControl>
 										<FormMessage />

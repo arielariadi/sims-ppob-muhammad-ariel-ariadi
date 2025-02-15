@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import registrationReducer from '../features/auth/authSlice';
+import showPasswordReducer from '../features/auth/showPasswordSlice';
 
 export const store = configureStore({
 	reducer: {
 		registration: registrationReducer,
+		showPassword: showPasswordReducer,
 	},
 });
 
