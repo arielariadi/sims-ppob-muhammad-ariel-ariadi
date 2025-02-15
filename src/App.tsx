@@ -1,8 +1,13 @@
+import { Routes, Route } from 'react-router';
+import RegisterPage from './pages/RegisterPage';
+import Loginpage from './pages/LoginPage';
+
 function App() {
 	return (
-		<>
-			<h1 className="text-red-500">Test</h1>
-		</>
+		<Routes>
+			<Route index element={<RegisterPage />} />
+			<Route path="/login" element={<Loginpage />} />
+		</Routes>
 	);
 }
 
