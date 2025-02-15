@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import registrationReducer from '../features/auth/authSlice';
 import showPasswordReducer from '../features/auth/showPasswordSlice';
+import registerReducer from '../features/auth/registerSlice';
+import loginReducer from '../features/auth/loginSlice';
 
 export const store = configureStore({
 	reducer: {
-		registration: registrationReducer,
+		registration: registerReducer,
+		login: loginReducer,
 		showPassword: showPasswordReducer,
 	},
 });

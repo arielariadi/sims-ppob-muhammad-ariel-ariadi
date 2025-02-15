@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { registerUserAPI } from '../../API';
+import { loginUserAPI, registerUserAPI } from '../../API';
 
 export const registerUserThunk = createAsyncThunk(
 	'auth/register',
 	async (
-		userData: {
+		registerData: {
 			email: string;
 			first_name: string;
 			last_name: string;
@@ -13,9 +14,32 @@ export const registerUserThunk = createAsyncThunk(
 		{ rejectWithValue }
 	) => {
 		try {
-			const response = await registerUserAPI(userData);
+			const response = await registerUserAPI(registerData);
 			return response;
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		} catch (error: any) {
+			if (error.response && error.response?.data?.message) {
+				return rejectWithValue(error.response.data.message);
+			} else {
+				return rejectWithValue(error.message);
+			}
+		}
+	}
+);
+
+export const loginUserThunk = createAsyncThunk(
+	'auth/login',
+	async (
+		loginData: {
+			email: string;
+			password: string;
+		},
+		{ rejectWithValue }
+	) => {
+		try {
+			const response = await loginUserAPI(loginData);
+
+			localStorage.setItem('userToken', response.data.token);
+			return response;
 		} catch (error: any) {
 			if (error.response && error.response?.data?.message) {
 				return rejectWithValue(error.response.data.message);

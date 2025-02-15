@@ -4,9 +4,8 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../app/store';
+import { RootState, AppDispatch } from '../app/store';
 import { registerUserThunk } from '../features/auth/authThunks';
-import { AppDispatch } from '../app/store';
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
@@ -130,7 +129,7 @@ export default function RegisterPage() {
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
 			<div className="flex w-full max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden h-[600px]">
-				<div className="w-full md:w-1/2 p-8">
+				<div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
 					<div className="flex items-center justify-center">
 						<img src={logo} alt="Logo" className="w-7 h-7 mr-2" />{' '}
 						<h1 className="text-xl font-medium text-gray-900">SIMS PPOB</h1>
