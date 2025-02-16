@@ -150,7 +150,7 @@ export default function TopUpPage() {
 								key={value}
 								variant="outline"
 								onClick={() => handleAmountClick(value)}
-								className="w-full">
+								className="w-full cursor-pointer">
 								Rp{value.toLocaleString()}
 							</Button>
 						))}

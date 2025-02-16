@@ -7,6 +7,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import TopUpPage from './pages/TopUpPage';
 import TransactionPage from './pages/TransactionPage';
 import TransactionHistoryPage from './pages/TransactionHistoryPage';
+import AccountPage from './pages/AccountPage';
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 					element={<TransactionHistoryPage />}
 				/>
 				<Route path="/topup" element={<TopUpPage />} />
+				<Route path="/akun" element={<AccountPage />} />
 			</Route>
 
 			<Route path="*" element={<NotFoundPage />} />

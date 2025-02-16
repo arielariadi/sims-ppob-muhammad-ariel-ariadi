@@ -75,12 +75,12 @@ export const userBannersAPI = async () => {
 	}
 };
 
-type AmountData = {
+type AmountDataType = {
 	top_up_amount: number;
 	transaction_type: string;
 };
 
-export const userTopUpAPI = async (userAmount: AmountData) => {
+export const userTopUpAPI = async (userAmount: AmountDataType) => {
 	try {
 		const response = await axios.post(
 			`${apiConfig.BASE_URL}/topup`,
@@ -112,6 +112,50 @@ export const userTransactionHistoryAPI = async (
 			{
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+				},
+			}
+		);
+
+		return response.data;
+	} catch (error) {
+		handleApiError(error);
+	}
+};
+
+export const userUploadProfileImageAPI = async (formData: FormData) => {
+	try {
+		const response = await axios.put(
+			`${apiConfig.BASE_URL}/profile/image`,
+			formData,
+			{
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+				},
+			}
+		);
+
+		return response.data;
+	} catch (error) {
+		handleApiError(error);
+	}
+};
+
+type ProfileDataType = {
+	first_name: string;
+	last_name: string;
+};
+
+export const userUpdateUserProfileAPI = async (
+	profileData: ProfileDataType
+) => {
+	try {
+		const response = await axios.put(
+			`${apiConfig.BASE_URL}/profile/update`,
+			profileData,
+			{
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+					'Content-Type': 'application/json',
 				},
 			}
 		);

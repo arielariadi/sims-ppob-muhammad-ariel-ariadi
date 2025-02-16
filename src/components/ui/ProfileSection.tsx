@@ -27,14 +27,15 @@ export function ProfileSection({
 			<div className="flex flex-col md:flex-row items-center md:items-start gap-6">
 				<div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
 					<img
-						src={profilePhoto}
+						src={profile?.profile_image || profilePhoto}
 						alt={profile?.first_name}
+						onError={e => (e.currentTarget.src = profilePhoto)}
 						className="w-24 h-24 rounded-full object-cover shadow-md"
 					/>
 					<h1 className="text-xl text-gray-600 font-medium mt-3">
 						Selamat datang,
 					</h1>
-					<h2 className="text-3xl font-bold">
+					<h2 className="text-3xl font-medium">
 						{profile?.first_name} {profile?.last_name}
 					</h2>
 				</div>

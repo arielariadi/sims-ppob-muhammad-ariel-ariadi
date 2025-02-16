@@ -65,7 +65,7 @@ export function Navbar() {
 						Top Up
 					</NavLink>
 					<NavLink
-						to="/transaction"
+						to="/transaction-history"
 						className={({ isActive }) =>
 							`block text-lg font-medium px-3 py-2 rounded-md ${
 								isActive ? 'text-red-600' : 'text-gray-700 hover:text-blue-500'
