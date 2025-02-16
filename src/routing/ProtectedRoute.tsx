@@ -24,7 +24,6 @@ export default function ProtectedRoute() {
 			</div>
 		);
 	}
-	console.log(userToken);
 
 	return (
 		<>
