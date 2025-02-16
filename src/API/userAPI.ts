@@ -44,6 +44,23 @@ export const userServicesAPI = async () => {
 	}
 };
 
+export const userTransactionAPI = async (serviceCode: string) => {
+	try {
+		const response = await axios.post(
+			`${apiConfig.BASE_URL}/transaction`,
+			{ service_code: serviceCode },
+			{
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+				},
+			}
+		);
+		return response.data;
+	} catch (error) {
+		handleApiError(error);
+	}
+};
+
 export const userBannersAPI = async () => {
 	try {
 		const response = await axios.get(`${apiConfig.BASE_URL}/banner`, {

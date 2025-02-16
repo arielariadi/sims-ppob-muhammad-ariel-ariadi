@@ -4,6 +4,7 @@ import {
 	userBannersThunk,
 	userProfileThunk,
 	userServicesThunk,
+	userTransactionThunk,
 } from './homeThunks';
 
 import {
@@ -11,6 +12,7 @@ import {
 	UserBalanceType,
 	UserServicesType,
 	UserBannersType,
+	UserTransactionType,
 } from './Types';
 
 type HomeState = {
@@ -18,6 +20,7 @@ type HomeState = {
 	balance: UserBalanceType | null;
 	services: UserServicesType[];
 	banners: UserBannersType[];
+	transaction: UserTransactionType | null;
 	loading: boolean;
 	error: string | null;
 };
@@ -27,6 +30,7 @@ const initialState: HomeState = {
 	balance: null,
 	services: [],
 	banners: [],
+	transaction: null,
 	loading: false,
 	error: null,
 };
@@ -84,6 +88,18 @@ const homeSlice = createSlice({
 			.addCase(userBannersThunk.rejected, (state, action) => {
 				state.loading = false;
 				state.error = action.error.message || 'Failed to fetch banners';
+			})
+			.addCase(userTransactionThunk.pending, state => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(userTransactionThunk.fulfilled, (state, action) => {
+				state.loading = false;
+				state.transaction = action.payload.data;
+			})
+			.addCase(userTransactionThunk.rejected, (state, action) => {
+				state.loading = false;
+				state.error = (action.payload as string) || 'Transaksi gagal!';
 			});
 	},
 });

@@ -19,7 +19,7 @@ import Swal from 'sweetalert2';
 export default function TopUpPage() {
 	const dispatch = useDispatch<AppDispatch>();
 
-	const { profile, balance, loading, error } = useSelector(
+	const { profile, balance, loading } = useSelector(
 		(state: RootState) => state.home
 	);
 
@@ -98,12 +98,10 @@ export default function TopUpPage() {
 				icon: 'error',
 				confirmButtonText: 'OK',
 			});
-			console.error('Top Up Error:', error);
 		}
 	};
 
 	if (loading) return <div>Loading...</div>;
-	if (error) return <div>Error: {error}</div>;
 
 	return (
 		<div className="min-h-screen bg-gray-100">

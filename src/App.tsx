@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ProtectedRoute from './routing/ProtectedRoute';
 import NotFoundPage from './pages/NotFoundPage';
 import TopUpPage from './pages/TopUpPage';
+import TransactionPage from './pages/TransactionPage';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 
 			<Route element={<ProtectedRoute />}>
 				<Route path="/homepage" element={<HomePage />} />
+				<Route path="/pembayaran/:serviceCode" element={<TransactionPage />} />
 				<Route path="/topup" element={<TopUpPage />} />
 			</Route>
 
