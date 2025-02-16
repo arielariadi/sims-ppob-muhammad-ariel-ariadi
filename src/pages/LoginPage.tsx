@@ -151,6 +151,7 @@ export default function Loginpage() {
 												/>
 												<Button
 													variant="ghost"
+													type="button"
 													onClick={() => dispatch(toggleShowPassword())}
 													className="absolute inset-y-0 right-0 px-3 cursor-pointer">
 													{showPassword ? (

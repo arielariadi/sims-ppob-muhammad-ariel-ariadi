@@ -232,6 +232,7 @@ export default function RegisterPage() {
 												/>
 												<Button
 													variant="ghost"
+													type="button"
 													onClick={() => dispatch(toggleShowPassword())}
 													className="absolute inset-y-0 right-0 px-3 cursor-pointer">
 													{showPassword ? (
@@ -266,6 +267,7 @@ export default function RegisterPage() {
 												/>
 												<Button
 													variant="ghost"
+													type="button"
 													onClick={() => dispatch(toggleShowConfirmPassword())}
 													className="absolute inset-y-0 right-0 px-3 cursor-pointer">
 													{showConfirmPassword ? (
