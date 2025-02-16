@@ -272,7 +272,7 @@ export default function AccountPage() {
 									type="button"
 									onClick={handleCancel}
 									className="w-full bg-red-600 text-white cursor-pointer">
-									Batal
+									Batalkan
 								</Button>
 							</div>
 						) : (
@@ -281,7 +281,7 @@ export default function AccountPage() {
 								variant="outline"
 								onClick={handleEdit}
 								className="w-full text-red-600 cursor-pointer border border-red-600">
-								Update Data
+								Edit Profile
 							</Button>
 						)}
 					</form>

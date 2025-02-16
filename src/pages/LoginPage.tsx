@@ -178,7 +178,7 @@ export default function Loginpage() {
 
 					<p className="text-center mt-5">
 						Belum punya akun? registrasi{' '}
-						<NavLink to="/" className="text-red-700">
+						<NavLink to="/" role="button" className="text-red-700">
 							di sini
 						</NavLink>
 					</p>

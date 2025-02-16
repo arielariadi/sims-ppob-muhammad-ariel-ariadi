@@ -294,7 +294,7 @@ export default function RegisterPage() {
 
 					<p className="text-center mt-5">
 						Sudah punya akun? login{' '}
-						<NavLink to="/login" className="text-red-700">
+						<NavLink to="/login" role="button" className="text-red-700">
 							di sini
 						</NavLink>
 					</p>
