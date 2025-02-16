@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect, useState, useRef } from 'react';
@@ -37,7 +36,6 @@ type AccountFormType = z.infer<typeof accountSchema>;
 export default function AccountPage() {
 	const dispatch = useDispatch<AppDispatch>();
 	const { profile, loading } = useSelector((state: RootState) => state.home);
-	const [selectedFile, setSelectedFile] = useState<File | null>(null);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const fileInputRef = useRef<HTMLInputElement>(null);
@@ -109,8 +107,6 @@ export default function AccountPage() {
 				Swal.fire('Ukuran Terlalu Besar', 'Maksimal 100 KB.', 'error');
 				return;
 			}
-
-			setSelectedFile(file);
 
 			await handleUploadImage(file);
 		}

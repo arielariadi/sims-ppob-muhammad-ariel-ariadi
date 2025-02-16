@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../app/store';
@@ -26,13 +25,9 @@ export default function TransactionHistoryPage() {
 		(state: RootState) => state.home
 	);
 
-	const {
-		transactionHistory,
-		offset,
-		limit,
-		loading: loadingTransactionHistory,
-		error: errorTransactionHistory,
-	} = useSelector((state: RootState) => state.transactionHistory);
+	const { transactionHistory, offset, limit } = useSelector(
+		(state: RootState) => state.transactionHistory
+	);
 
 	useEffect(() => {
 		dispatch(userProfileThunk());
