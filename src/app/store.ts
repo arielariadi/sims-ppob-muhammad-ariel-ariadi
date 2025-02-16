@@ -4,6 +4,7 @@ import registerReducer from '../features/auth/registerSlice';
 import loginReducer from '../features/auth/loginSlice';
 import homeReducer from '../features/home/homeSlice';
 import showBalanceReducer from '../features/home/showBalanceSlice';
+import topUpReducer from '../features/top-up/topUpSlice';
 
 export const store = configureStore({
 	reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
 		showPassword: showPasswordReducer,
 		home: homeReducer,
 		showBalance: showBalanceReducer,
+		topUp: topUpReducer,
 	},
 });
 

@@ -57,3 +57,30 @@ export const userBannersAPI = async () => {
 		handleApiError(error);
 	}
 };
+
+type AmountData = {
+	top_up_amount: number;
+	transaction_type: string;
+};
+
+export const userTopUpAPI = async (userAmount: AmountData) => {
+	try {
+		const response = await axios.post(
+			`${apiConfig.BASE_URL}/topup`,
+			{
+				...userAmount,
+				transaction_type: 'TOPUP',
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+				},
+			}
+		);
+
+		return response.data;
+	} catch (error) {
+		handleApiError(error);
+	}
+};

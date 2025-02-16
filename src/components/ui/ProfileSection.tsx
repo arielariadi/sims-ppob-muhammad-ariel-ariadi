@@ -23,7 +23,7 @@ export function ProfileSection({
 	const dispatch = useDispatch<AppDispatch>();
 
 	return (
-		<div className="bg-white p-6 rounded-lg shadow-md mb-6">
+		<div className="p-6 rounded-lg mb-6">
 			<div className="flex flex-col md:flex-row items-center md:items-start gap-6">
 				<div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
 					<img

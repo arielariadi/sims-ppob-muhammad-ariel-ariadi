@@ -35,7 +35,7 @@ const registrationSlice = createSlice({
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			.addCase(registerUserThunk.rejected, (state, action: any) => {
 				state.loading = false;
-				state.error = (action.payload as string) || 'Registration failed';
+				state.error = (action.payload as string) || 'Registration failed!';
 				state.success = null;
 			});
 	},

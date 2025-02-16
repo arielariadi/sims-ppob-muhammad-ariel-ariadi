@@ -28,8 +28,9 @@ export default function HomePage() {
 	if (error) return <div>Error: {error}</div>;
 
 	return (
-		<div className="min-h-screen bg-gray-100">
+		<div className="min-h-screen">
 			<div className="container mx-auto p-4">
+				{/* Profile Section */}
 				<ProfileSection
 					profilePhoto={profilePhoto}
 					profile={profile}
@@ -37,7 +38,7 @@ export default function HomePage() {
 				/>
 
 				{/* Services Section */}
-				<div className="bg-white p-6 rounded-lg shadow-md mb-6">
+				<div className="p-6 mb-6">
 					<div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-center gap-4">
 						{services.map(service => (
 							<div
@@ -55,7 +56,7 @@ export default function HomePage() {
 				</div>
 
 				{/* Banner Section */}
-				<div className="bg-white p-6 rounded-lg shadow-md">
+				<div className="p-6 ">
 					<h2 className="text-xl font-bold mb-4">Temukan Promosi Menarik</h2>
 					<div className="flex overflow-x-auto space-x-4">
 						{banners.map(banner => (
