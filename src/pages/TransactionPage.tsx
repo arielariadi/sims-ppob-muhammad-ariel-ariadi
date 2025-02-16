@@ -129,6 +129,7 @@ export default function TransactionPage() {
 
 							<Input
 								value={selectedService.service_tariff.toLocaleString()}
+								readOnly
 								className="pl-10"
 							/>
 						</div>

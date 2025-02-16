@@ -6,6 +6,7 @@ import ProtectedRoute from './routing/ProtectedRoute';
 import NotFoundPage from './pages/NotFoundPage';
 import TopUpPage from './pages/TopUpPage';
 import TransactionPage from './pages/TransactionPage';
+import TransactionHistoryPage from './pages/TransactionHistoryPage';
 
 function App() {
 	return (
@@ -16,6 +17,10 @@ function App() {
 			<Route element={<ProtectedRoute />}>
 				<Route path="/homepage" element={<HomePage />} />
 				<Route path="/pembayaran/:serviceCode" element={<TransactionPage />} />
+				<Route
+					path="/transaction-history"
+					element={<TransactionHistoryPage />}
+				/>
 				<Route path="/topup" element={<TopUpPage />} />
 			</Route>
 

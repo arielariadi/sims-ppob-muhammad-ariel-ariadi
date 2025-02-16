@@ -5,6 +5,7 @@ import loginReducer from '../features/auth/loginSlice';
 import homeReducer from '../features/home/homeSlice';
 import showBalanceReducer from '../features/home/showBalanceSlice';
 import topUpReducer from '../features/top-up/topUpSlice';
+import transactionHistoryReducer from '../features/transaction-history/transactionHistorySlice';
 
 export const store = configureStore({
 	reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
 		home: homeReducer,
 		showBalance: showBalanceReducer,
 		topUp: topUpReducer,
+		transactionHistory: transactionHistoryReducer,
 	},
 });
 

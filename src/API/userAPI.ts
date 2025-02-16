@@ -101,3 +101,23 @@ export const userTopUpAPI = async (userAmount: AmountData) => {
 		handleApiError(error);
 	}
 };
+
+export const userTransactionHistoryAPI = async (
+	offset: number,
+	limit: number
+) => {
+	try {
+		const response = await axios.get(
+			`${apiConfig.BASE_URL}/transaction/history?offset=${offset}&limit=${limit}`,
+			{
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+				},
+			}
+		);
+
+		return response.data;
+	} catch (error) {
+		handleApiError(error);
+	}
+};

@@ -51,7 +51,7 @@ export function ProfileSection({
 							</p>
 						</CardContent>
 						<CardFooter className="flex items-center">
-							<p>Lihat saldo</p>
+							{showBalance ? <p>Tutup saldo</p> : <p>Lihat saldo</p>}
 							<Button
 								variant="ghost"
 								onClick={() => dispatch(toggleShowBalance())}
